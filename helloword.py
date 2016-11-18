@@ -2,7 +2,7 @@ import cherrypy
 
 class HelloWorld:
     def index(self):
-        return "Hello world!"
+         return "Hello world!"
     index.exposed = True
 
 
