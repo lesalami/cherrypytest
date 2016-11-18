@@ -1,1 +1,2 @@
-cherrypy
+CherryPy==3.2.2
+wsgiref==0.1.2
