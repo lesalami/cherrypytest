@@ -44,8 +44,28 @@ class HelloWorld(object):
         return "<br/><p><a href='"+authorize_url+"?oauth_token="+request_token[b'oauth_token']+"' > Click here to login</a></p> "
     index.exposed = True
     
-    def generate(self):
-        return "Generate page"
+    def generate(self,oauth_token,oauth_verifier,oauth_token_secret):
+        
+        token = oauth.Token(oauth_token,oauth_token_secret)
+        token.set_verifier(oauth_verifier)
+        consumer = oauth.Consumer(consumer_key, consumer_secret)
+        
+        
+        
+        client = oauth.Client(consumer, token)
+
+        resp, content = client.request(access_token_url, "POST")
+        access_token = dict(cgi.parse_qsl(content))
+
+        print( "Access Token:")
+        print( "    - oauth_token        = %s" % access_token[b'oauth_token'])
+        print( "    - oauth_token_secret = %s" % access_token[b'oauth_token_secret'])
+        print()
+        print ("You may now access protected resources using the access tokens above." )
+        print()
+
+        
+        return "Access token is: "+access_token[b'oauth_token']
     generate.exposed=True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
