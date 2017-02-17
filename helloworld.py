@@ -1,6 +1,6 @@
 import cherrypy
 import os
-from urlparse import urlparse
+import urlparse
 import oauth2 as oauth
 import cgi
 
