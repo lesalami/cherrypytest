@@ -1,4 +1,4 @@
 CherryPy==8.1.2
 wsgiref==0.1.2
-urllib
+urllib==1.12
 oauth2
