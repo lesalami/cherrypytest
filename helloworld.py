@@ -57,7 +57,7 @@ class HelloWorld(object):
 
         resp, content = client.request(access_token_url, "POST")
         access_token = dict(cgi.parse_qsl(content))
-        api = twitter.Api(consumer_key='Ma6HbYAcfiwSZ3yldpYLIkrtk',consumer_secret='9SXotYYcjFKwIZJpptEOlX7zOOvKTe8Js3Unra130EIorTD8Mm',access_token_key= access_token[b'oauth_token'],access_token_secret=access_token[b'oauth_token_secret'])
+        api = twitter.Api(consumer_key='Ma6HbYAcfiwSZ3yldpYLIkrtk',consumer_secret='9SXotYYcjFKwIZJpptEOlX7zOOvKTe8Js3Unra130EIorTD8Mm',access_token_key= access_token['oauth_token'],access_token_secret=access_token['oauth_token_secret'])
 
         #print(api.VerifyCredentials())
         '''
