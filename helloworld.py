@@ -3,6 +3,7 @@ import os
 from urlparse import urlparse
 import oauth2 as oauth
 import cgi
+import twitter
 
 
 
@@ -56,16 +57,19 @@ class HelloWorld(object):
 
         resp, content = client.request(access_token_url, "POST")
         access_token = dict(cgi.parse_qsl(content))
+        api = twitter.Api(consumer_key='Ma6HbYAcfiwSZ3yldpYLIkrtk',consumer_secret='9SXotYYcjFKwIZJpptEOlX7zOOvKTe8Js3Unra130EIorTD8Mm',access_token_key= access_token[b'oauth_token'],access_token_secret=access_token[b'oauth_token_secret'])
 
+        #print(api.VerifyCredentials())
+        '''
         print( "Access Token:")
         print( "    - oauth_token        = %s" % access_token[b'oauth_token'])
         print( "    - oauth_token_secret = %s" % access_token[b'oauth_token_secret'])
         print()
         print ("You may now access protected resources using the access tokens above." )
         print()
-
+        '''
         
-        return "Access token is: "+access_token[b'oauth_token']
+        return "Credentials are: "+api.VerifyCredentials()
     generate.exposed=True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
