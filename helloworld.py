@@ -44,7 +44,7 @@ class HelloWorld(object):
         return "<br/><p><a href='"+authorize_url+"?oauth_token="+request_token[b'oauth_token']+"' > Click here to login</a></p> "
     index.exposed = True
     
-    def generate(self,oauth_token,oauth_verifier,oauth_token_secret):
+    def generate(self,oauth_token,oauth_verifier,oauth_token_secret=""):
         
         token = oauth.Token(oauth_token,oauth_token_secret)
         token.set_verifier(oauth_verifier)
