@@ -69,7 +69,7 @@ class HelloWorld(object):
         print()
         '''
         
-        return "Credentials are: "+api.VerifyCredentials()
+        return "Credentials are: "+ str(api.VerifyCredentials())
     generate.exposed=True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
