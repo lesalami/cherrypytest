@@ -1,8 +1,10 @@
 import cherrypy
 import os
-import urlparse
+from urlparse import urlparse
 import oauth2 as oauth
 import cgi
+
+
 
 
 consumer_key = 'Ma6HbYAcfiwSZ3yldpYLIkrtk'
@@ -22,7 +24,7 @@ class HelloWorld(object):
         if resp['status'] != '200':
             raise Exception("Invalid response %s." % resp['status'])
             
-        request_token = dict(urlparse.urlparse.parse_qsl(content))
+        request_token = dict(cgi.parse_qsl(content))
         print ("Request Token:")
         print (" - oauth_token        = %s" % request_token[b'oauth_token'])
         print ("    - oauth_token_secret = %s" % request_token[b'oauth_token_secret'])
