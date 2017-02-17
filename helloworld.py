@@ -1,5 +1,6 @@
 import cherrypy
 import os
+
     
 class HelloWorld(object):
     def index(self):
@@ -7,7 +8,7 @@ class HelloWorld(object):
     index.exposed = True
     
     def generate(self):
-        return ''.join(random.sample(string.hexdigits, 8))
+        return "Generate page"
     generate.exposed=True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
